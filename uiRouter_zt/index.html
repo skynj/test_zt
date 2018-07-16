@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-ui-router.min.js"></script>
+		<script src="js/module.js"></script>
+	</head>
+	<style type="text/css">
+		.tab{
+			display: inline-block;
+			width: 276px;
+		}
+		.tabList{
+			background: #23527C;
+			color: #FFF;
+		}
+		.tabList ul{
+			margin: 0;
+			padding: 0;
+		}
+		.tabList li{
+			display: inline-block;
+			float: left;
+		}
+		.tabList li a{
+			display: inline-block;
+			width: 90px;
+			height: 40px;
+			line-height: 40px;
+			text-align: center;
+			border: 1px solid #23527C;
+		}
+		.tabList li a{
+			color: #FFF;
+			text-decoration: none;
+		}
+		.tabList li.active{
+			background: #FFF;
+		}
+		.tabList li.active a{
+			color: #23527C;
+		}
+		.secondTab li{
+			list-style: none;
+			cursor: pointer;
+		}
+		.tabCon{
+			border: 1px solid #CCC;
+			height: 300px;
+			padding: 5px;
+			color: #000000;
+		}
+		.clear{
+			clear: both;
+		}
+	</style>
+	<body ng-app="app">
+		<div class="tab">
+			<div class="tabList">
+				<ul>
+					<li><a ui-sref='html'>html</a></li>
+					<li><a ui-sref='css'>css</a></li>
+					<li class="active"><a ui-sref='js'>js</a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<div ui-view class="tabCon">
+				
+			</div>
+		</div>
+		
+		<script>
+			$('.tabList li').click(function(){
+				$(this).addClass('active').siblings().removeClass('active');
+			})
+		</script>
+	</body>
+</html>
